@@ -1,0 +1,70 @@
+<html lang="en">
+    <head>
+        <title>Sign In</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+        <script src="https://kit.fontawesome.com/fae507e010.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+        <style>
+            body{
+          background-color: #0D0D0D;
+          color:#fcf6f6;
+          font-family: "Poppins", sans-serif;
+             }
+             footer{
+          text-align: center;
+          padding-top: 480px;
+             }
+        </style>
+        <script>
+            function signin(event){
+          event.preventDefault();
+          const emailid=document.getElementById("email").value;
+          const pwd=document.getElementById("pwd").value;
+          
+          const dataa={emailid,pwd}
+          console.log(dataa);
+          axios.post("/admin/sign/",dataa).then(response=>{
+             alert("Done ! Go back to the page to use URL Shorten .");
+        }).catch(err =>{
+            alert("Failed !");
+        })
+      }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Sign In</h2>
+            <form class="form-horizontal" onsubmit="signin(event)">
+
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Password:</label>
+                <div class="col-sm-10">          
+                  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                </div>
+              </div>
+
+
+
+            <div class="form-group">        
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <footer><a href="https://suubh.github.io/Shubham/index.html">- Shubham Singh -</a></footer>
+    </body>  
+</html>
